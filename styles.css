@@ -1,0 +1,13 @@
+:root {
+    --base: #9191F4;
+    --padding: 10px;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--base);
+}
+
+img {
+    padding: var(--padding);
+}

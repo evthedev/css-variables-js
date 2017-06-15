@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CSS Variables in JS</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+    </head>
+    <body>
+        <h3>CSS variables in JS</h3>
+        <p>Play with the settings and watch changes happen instantly!</p>
+        <div class="controls">
+
+            <label for="padding">Padding</label>
+            <input type="range" data-unit="px" min="10" max="200" value="10" name="padding" />
+
+            <label for="base">Base color</label>
+            <input type="color" value="#9191F4" name="base" />
+        
+        </div>
+
+        <img src="./images/spongegar.jpg" style="width: 300px">
+        
+        <script>
+            const controls = document.querySelectorAll('.controls input');
+            
+            function handleUpdate() {
+                const data = this.dataset.unit || '';
+                document.documentElement.style.setProperty(`--${this.name}`, `${this.value}` + data);
+                console.log(`${this.name}`, `${this.value}` + data);
+            }
+            
+            controls.forEach(input => input.addEventListener('change', handleUpdate));
+            controls.forEach(input => input.addEventListener('mousemove', handleUpdate));
+
+        </script>
+
+    </body>
+</html>
